@@ -362,19 +362,20 @@ body.sgq-route-map main .kyrgyz-card:has(a[href*="/level/"]) {
   }
 
   .sgq-map-runner-girl {
-    right: 82px;
-    width: 86px;
-    height: 86px;
+    right: 72px;
+    bottom: 12px;
+    width: 66px;
+    height: 66px;
   }
 
   .sgq-map-runner-boy {
-    right: 18px;
-    width: 78px;
-    height: 78px;
+    right: 14px;
+    width: 66px;
+    height: 66px;
   }
 
   .sgq-map-scene span {
-    max-width: 58%;
+    max-width: 56%;
     font-size: 0.82rem;
   }
 
