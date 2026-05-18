@@ -43,6 +43,47 @@ button:hover .sgq-avatar-img {
   background-image: linear-gradient(145deg, rgba(255,255,255,0.62), rgba(255,255,255,0.08));
 }
 
+body.sgq-route-students main button[title][data-sgq-hidden-avatar="true"] {
+  display: none !important;
+}
+
+body.sgq-route-students main button[title] {
+  width: 112px !important;
+  height: 112px !important;
+  aspect-ratio: 1 / 1 !important;
+  padding: 0 !important;
+  border-radius: 999px !important;
+  display: grid !important;
+  place-items: center !important;
+  overflow: hidden !important;
+  background: linear-gradient(145deg, rgba(255,255,255,0.86), rgba(255,238,214,0.56)) !important;
+}
+
+body.sgq-route-students main button[title] > [data-sgq-avatar] {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+}
+
+body.sgq-route-students main button[title] .sgq-avatar-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 999px;
+  object-fit: cover;
+  object-position: center 18%;
+  filter: none;
+}
+
+body.sgq-route-students main button[title]:hover .sgq-avatar-img {
+  transform: scale(1.06);
+}
+
+body.sgq-route-students main button[title] .absolute {
+  z-index: 3;
+}
+
 body.sgq-route-home main .kyrgyz-card:has(svg[viewBox="0 0 600 340"]) {
   position: relative;
   min-height: 330px;
@@ -163,6 +204,11 @@ body.sgq-route-map main .kyrgyz-card:has(a[href*="/level/"]) {
   .sgq-map-scene span {
     max-width: 62%;
     font-size: 0.82rem;
+  }
+
+  body.sgq-route-students main button[title] {
+    width: 76px !important;
+    height: 76px !important;
   }
 }
 
