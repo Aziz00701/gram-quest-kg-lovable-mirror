@@ -85,10 +85,61 @@
     wrap.className = "sgq-visual-characters";
     wrap.innerHTML = [
       '<img src="/assets/visuals/avatars-0-src.png" alt="">',
-      '<img src="/assets/visuals/avatars-5-src.png" alt="">',
       '<img src="/assets/visuals/avatars-2-src.png" alt="">'
     ].join("");
     heroCard.appendChild(wrap);
+  }
+
+  function polishHomeLeopard() {
+    if (!document.body.classList.contains("sgq-route-home")) return;
+
+    document.querySelectorAll('main [class*="-bottom-2"][class*="-left"]').forEach((guide) => {
+      if (!(guide.textContent || "").includes("Hi! I'm your guide")) return;
+      guide.dataset.sgqHideHomeSnow = "false";
+      guide.classList.add("sgq-home-leopard-guide");
+      if (!guide.querySelector(".sgq-home-leopard-img")) {
+        const img = image("/assets/visuals/avatars-10-src.png", "\u0421\u043d\u0435\u0436\u043d\u044b\u0439 \u0431\u0430\u0440\u0441");
+        img.className = "sgq-home-leopard-img";
+        guide.prepend(img);
+      }
+    });
+
+    document.querySelectorAll("main *").forEach((node) => {
+      const text = Array.from(node.childNodes)
+        .filter((child) => child.nodeType === Node.TEXT_NODE)
+        .map((child) => child.textContent)
+        .join("")
+        .trim();
+      if (!text) return;
+
+      if (text.includes("Hi! I'm your guide")) {
+        const guide = node.closest(".flex.items-end.gap-3") || node.closest(".absolute") || node;
+        guide.dataset.sgqHideHomeSnow = "false";
+        guide.classList.add("sgq-home-leopard-guide");
+      }
+
+      if (text === "\ud83d\udc06 \u0421\u043d\u0435\u0436\u043d\u044b\u0439 \u0431\u0430\u0440\u0441" || text === "\u0421\u043d\u0435\u0436\u043d\u044b\u0439 \u0431\u0430\u0440\u0441") {
+        node.dataset.sgqHideHomeSnow = "true";
+      }
+
+      if (text.includes("Snow Leopard Speed")) {
+        node.textContent = text.replace("Snow Leopard Speed, ", "").replace(", Snow Leopard Speed", "");
+      }
+    });
+
+    document.querySelectorAll("main div").forEach((node) => {
+      const text = (node.textContent || "").trim();
+      if (text === "\ud83d\udc06 \u0421\u043d\u0435\u0436\u043d\u044b\u0439 \u0431\u0430\u0440\u0441" || text === "\u0421\u043d\u0435\u0436\u043d\u044b\u0439 \u0431\u0430\u0440\u0441") {
+        node.dataset.sgqHideHomeSnow = "true";
+      }
+    });
+
+    document.querySelectorAll(".sgq-home-leopard-guide").forEach((guide) => {
+      const leopards = guide.querySelectorAll(".sgq-home-leopard-img");
+      leopards.forEach((img, index) => {
+        if (index > 0) img.remove();
+      });
+    });
   }
 
   function addMapScene() {
@@ -110,6 +161,7 @@
     polishAvatars();
     addHomeScene();
     addMapScene();
+    polishHomeLeopard();
   }
 
   let started = false;
