@@ -99,7 +99,7 @@ body.sgq-route-home main .kyrgyz-card:has(svg[viewBox="0 0 600 340"]) > svg {
 
 .sgq-visual-characters {
   position: absolute;
-  inset: auto 7% 7% 7%;
+  inset: auto 7% 6% 7%;
   z-index: 2;
   display: flex;
   align-items: flex-end;
@@ -107,7 +107,8 @@ body.sgq-route-home main .kyrgyz-card:has(svg[viewBox="0 0 600 340"]) > svg {
   pointer-events: none;
 }
 
-.sgq-visual-characters img {
+.sgq-visual-characters > img,
+.sgq-visual-guide img {
   width: clamp(62px, 9vw, 108px);
   height: clamp(76px, 12vw, 136px);
   object-fit: contain;
@@ -115,9 +116,66 @@ body.sgq-route-home main .kyrgyz-card:has(svg[viewBox="0 0 600 340"]) > svg {
   animation: sgq-float 3.4s ease-in-out infinite;
 }
 
-.sgq-visual-characters img:nth-child(2) {
+.sgq-visual-characters > img:nth-child(3) {
   width: clamp(62px, 9vw, 108px);
-  animation-delay: 0.45s;
+  animation-delay: 0.8s;
+}
+
+.sgq-visual-guide {
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+  position: relative;
+  margin-bottom: 0;
+  z-index: 4;
+}
+
+.sgq-visual-guide img {
+  width: clamp(70px, 10vw, 118px);
+  height: clamp(70px, 10vw, 118px);
+  animation-delay: 0.35s;
+}
+
+.sgq-visual-guide-text {
+  display: none;
+}
+
+.sgq-hero-guide-bubble {
+  position: absolute;
+  left: 50%;
+  bottom: 112px;
+  transform: translateX(-50%);
+  z-index: 7;
+  max-width: min(320px, 42vw);
+  min-width: 260px;
+  padding: 8px 12px;
+  border: 1px solid rgba(20, 49, 95, 0.12);
+  border-radius: 16px;
+  color: #14315f;
+  background: rgba(255,255,255,0.92);
+  box-shadow: 0 12px 24px rgba(20,49,95,0.14);
+  font-size: 0.82rem;
+  font-weight: 700;
+  line-height: 1.25;
+  text-align: center;
+  pointer-events: none;
+}
+
+.sgq-hero-guide-bubble::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -6px;
+  width: 12px;
+  height: 12px;
+  transform: translateX(-50%) rotate(45deg);
+  border-right: 1px solid rgba(20, 49, 95, 0.12);
+  border-bottom: 1px solid rgba(20, 49, 95, 0.12);
+  background: rgba(255,255,255,0.92);
+}
+
+body.sgq-route-home [data-sgq-hide-home-labels="true"] {
+  display: none !important;
 }
 
 body.sgq-route-home [data-sgq-hide-home-snow="true"] {
@@ -214,6 +272,18 @@ body.sgq-route-map main .kyrgyz-card:has(a[href*="/level/"]) {
   .sgq-visual-characters {
     inset-inline: 3%;
     bottom: 5%;
+  }
+
+  .sgq-visual-guide-text {
+    display: none;
+  }
+
+  .sgq-hero-guide-bubble {
+    bottom: 88px;
+    min-width: 190px;
+    max-width: 72vw;
+    padding: 7px 10px;
+    font-size: 0.72rem;
   }
 
   .sgq-map-scene {

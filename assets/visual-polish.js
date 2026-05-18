@@ -78,33 +78,44 @@
 
   function addHomeScene() {
     if (!document.body.classList.contains("sgq-route-home")) return;
-    if (document.querySelector(".sgq-visual-characters")) return;
     const heroCard = document.querySelector('main .kyrgyz-card svg[viewBox="0 0 600 340"]')?.parentElement;
     if (!heroCard) return;
-    const wrap = document.createElement("div");
-    wrap.className = "sgq-visual-characters";
-    wrap.innerHTML = [
-      '<img src="/assets/visuals/avatars-0-src.png" alt="">',
-      '<img src="/assets/visuals/avatars-2-src.png" alt="">'
-    ].join("");
-    heroCard.appendChild(wrap);
+
+    if (!heroCard.querySelector(".sgq-visual-characters")) {
+      const wrap = document.createElement("div");
+      wrap.className = "sgq-visual-characters";
+      wrap.innerHTML = [
+        '<img src="/assets/visuals/avatars-0-src.png" alt="">',
+        '<div class="sgq-visual-guide"><img src="/assets/visuals/avatars-10-src.png" alt=""></div>',
+        '<img src="/assets/visuals/avatars-2-src.png" alt="">'
+      ].join("");
+      heroCard.appendChild(wrap);
+    }
+
+    if (!heroCard.querySelector(".sgq-hero-guide-bubble")) {
+      const bubble = document.createElement("div");
+      bubble.className = "sgq-hero-guide-bubble";
+      bubble.textContent = "Hi! I'm your guide. Let's learn English grammar together!";
+      heroCard.appendChild(bubble);
+    }
   }
 
   function polishHomeLeopard() {
     if (!document.body.classList.contains("sgq-route-home")) return;
 
+    const heroCard = document.querySelector('main .kyrgyz-card svg[viewBox="0 0 600 340"]')?.parentElement;
+    heroCard?.querySelectorAll(".grid.grid-cols-3").forEach((labels) => {
+      labels.dataset.sgqHideHomeLabels = "true";
+    });
+
     document.querySelectorAll('main [class*="-bottom-2"][class*="-left"]').forEach((guide) => {
       if (!(guide.textContent || "").includes("Hi! I'm your guide")) return;
-      guide.dataset.sgqHideHomeSnow = "false";
-      guide.classList.add("sgq-home-leopard-guide");
-      if (!guide.querySelector(".sgq-home-leopard-img")) {
-        const img = image("/assets/visuals/avatars-10-src.png", "\u0421\u043d\u0435\u0436\u043d\u044b\u0439 \u0431\u0430\u0440\u0441");
-        img.className = "sgq-home-leopard-img";
-        guide.prepend(img);
-      }
+      guide.dataset.sgqHideHomeSnow = "true";
     });
 
     document.querySelectorAll("main *").forEach((node) => {
+      if (node.closest(".sgq-hero-guide-bubble")) return;
+
       const text = Array.from(node.childNodes)
         .filter((child) => child.nodeType === Node.TEXT_NODE)
         .map((child) => child.textContent)
@@ -114,8 +125,7 @@
 
       if (text.includes("Hi! I'm your guide")) {
         const guide = node.closest(".flex.items-end.gap-3") || node.closest(".absolute") || node;
-        guide.dataset.sgqHideHomeSnow = "false";
-        guide.classList.add("sgq-home-leopard-guide");
+        guide.dataset.sgqHideHomeSnow = "true";
       }
 
       if (text === "\ud83d\udc06 \u0421\u043d\u0435\u0436\u043d\u044b\u0439 \u0431\u0430\u0440\u0441" || text === "\u0421\u043d\u0435\u0436\u043d\u044b\u0439 \u0431\u0430\u0440\u0441") {
