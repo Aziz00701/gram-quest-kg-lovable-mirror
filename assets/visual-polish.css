@@ -21,6 +21,10 @@ body.sgq-polished {
     linear-gradient(180deg, rgba(255, 251, 242, 0.92), rgba(239, 249, 252, 0.82));
 }
 
+#lovable-badge {
+  display: none !important;
+}
+
 .sgq-avatar-img {
   width: 82%;
   height: 82%;
