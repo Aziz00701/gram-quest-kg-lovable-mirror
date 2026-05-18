@@ -215,38 +215,30 @@ body.sgq-route-home [data-sgq-hide-home-snow="true"] {
 
 .sgq-map-scene::before,
 .sgq-map-scene::after {
-  content: "";
-  position: absolute;
-  width: 120px;
-  height: 34px;
-  border-radius: 999px;
-  background: rgba(255,255,255,0.84);
-  filter: blur(0.2px);
-  animation: sgq-drift 16s linear infinite;
-}
-
-.sgq-map-scene::before {
-  top: 28px;
-  left: 10%;
-}
-
-.sgq-map-scene::after {
-  top: 72px;
-  right: 8%;
-  width: 88px;
-  opacity: 0.74;
-  animation-duration: 21s;
+  content: none;
 }
 
 .sgq-map-scene img {
   position: absolute;
+  object-fit: contain;
+  filter: drop-shadow(0 14px 20px rgba(20,49,95,0.2));
+  animation: sgq-float 3.2s ease-in-out infinite;
+}
+
+.sgq-map-runner-girl {
+  right: clamp(92px, 18vw, 190px);
+  bottom: 10px;
+  width: clamp(78px, 13vw, 142px);
+  height: clamp(78px, 13vw, 142px);
+  animation-delay: 0.25s;
+}
+
+.sgq-map-runner-boy {
   right: clamp(18px, 8vw, 84px);
   bottom: 8px;
   width: clamp(72px, 12vw, 132px);
   height: clamp(72px, 12vw, 132px);
-  object-fit: contain;
-  filter: drop-shadow(0 14px 20px rgba(20,49,95,0.2));
-  animation: sgq-float 3.2s ease-in-out infinite;
+  animation-delay: 0.75s;
 }
 
 .sgq-map-scene span {
@@ -365,8 +357,20 @@ body.sgq-route-map main .kyrgyz-card:has(a[href*="/level/"]) {
     min-height: 150px;
   }
 
+  .sgq-map-runner-girl {
+    right: 82px;
+    width: 86px;
+    height: 86px;
+  }
+
+  .sgq-map-runner-boy {
+    right: 18px;
+    width: 78px;
+    height: 78px;
+  }
+
   .sgq-map-scene span {
-    max-width: 62%;
+    max-width: 58%;
     font-size: 0.82rem;
   }
 
@@ -379,8 +383,6 @@ body.sgq-route-map main .kyrgyz-card:has(a[href*="/level/"]) {
 @media (prefers-reduced-motion: reduce) {
   .sgq-visual-characters img,
   .sgq-map-scene,
-  .sgq-map-scene::before,
-  .sgq-map-scene::after,
   .sgq-map-scene img,
   body.sgq-route-map main .kyrgyz-card:has(a[href*="/level/"]) {
     animation: none;
