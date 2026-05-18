@@ -1,0 +1,178 @@
+@keyframes sgq-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes sgq-drift {
+  0% { transform: translateX(-24px); }
+  50% { transform: translateX(28px); }
+  100% { transform: translateX(-24px); }
+}
+
+@keyframes sgq-soft-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(217, 31, 62, 0.22), 0 18px 42px rgba(20, 49, 95, 0.08); }
+  50% { box-shadow: 0 0 0 12px rgba(217, 31, 62, 0.04), 0 22px 48px rgba(20, 49, 95, 0.12); }
+}
+
+body.sgq-polished {
+  background-image:
+    radial-gradient(at 8% 0%, rgba(255, 221, 168, 0.44), transparent 42%),
+    radial-gradient(at 92% 100%, rgba(164, 213, 247, 0.38), transparent 48%),
+    linear-gradient(180deg, rgba(255, 251, 242, 0.92), rgba(239, 249, 252, 0.82));
+}
+
+.sgq-avatar-img {
+  width: 82%;
+  height: 82%;
+  object-fit: contain;
+  border-radius: inherit;
+  filter: drop-shadow(0 8px 12px rgba(20, 49, 95, 0.16));
+  pointer-events: none;
+}
+
+button .sgq-avatar-img {
+  transition: transform 0.18s ease;
+}
+
+button:hover .sgq-avatar-img {
+  transform: translateY(-2px) scale(1.04);
+}
+
+[data-sgq-avatar] {
+  overflow: hidden;
+  background-image: linear-gradient(145deg, rgba(255,255,255,0.62), rgba(255,255,255,0.08));
+}
+
+body.sgq-route-home main .kyrgyz-card:has(svg[viewBox="0 0 600 340"]) {
+  position: relative;
+  min-height: 330px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.28)),
+    url("/assets/visuals/backgrounds-hero.png") center / cover no-repeat;
+  box-shadow: 0 24px 60px rgba(20, 49, 95, 0.16);
+}
+
+body.sgq-route-home main .kyrgyz-card:has(svg[viewBox="0 0 600 340"]) > svg {
+  opacity: 0.04;
+}
+
+.sgq-visual-characters {
+  position: absolute;
+  inset: auto 5% 7% 5%;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.sgq-visual-characters img {
+  width: clamp(62px, 9vw, 108px);
+  height: clamp(76px, 12vw, 136px);
+  object-fit: contain;
+  filter: drop-shadow(0 12px 18px rgba(0,0,0,0.2));
+  animation: sgq-float 3.4s ease-in-out infinite;
+}
+
+.sgq-visual-characters img:nth-child(2) {
+  width: clamp(56px, 8vw, 96px);
+  animation-delay: 0.45s;
+}
+
+.sgq-visual-characters img:nth-child(3) {
+  animation-delay: 0.9s;
+}
+
+.sgq-map-scene {
+  position: relative;
+  overflow: hidden;
+  min-height: 190px;
+  border: 1px solid rgba(20, 49, 95, 0.12);
+  border-radius: 20px;
+  background:
+    linear-gradient(90deg, rgba(255,255,255,0.82), rgba(255,255,255,0.25)),
+    url("/assets/visuals/backgrounds-map.png") center 46% / cover no-repeat;
+  box-shadow: 0 18px 42px rgba(20, 49, 95, 0.12);
+}
+
+.sgq-map-scene::before,
+.sgq-map-scene::after {
+  content: "";
+  position: absolute;
+  width: 120px;
+  height: 34px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.84);
+  filter: blur(0.2px);
+  animation: sgq-drift 16s linear infinite;
+}
+
+.sgq-map-scene::before {
+  top: 28px;
+  left: 10%;
+}
+
+.sgq-map-scene::after {
+  top: 72px;
+  right: 8%;
+  width: 88px;
+  opacity: 0.74;
+  animation-duration: 21s;
+}
+
+.sgq-map-scene img {
+  position: absolute;
+  right: clamp(18px, 8vw, 84px);
+  bottom: 8px;
+  width: clamp(72px, 12vw, 132px);
+  height: clamp(72px, 12vw, 132px);
+  object-fit: contain;
+  filter: drop-shadow(0 14px 20px rgba(20,49,95,0.2));
+  animation: sgq-float 3.2s ease-in-out infinite;
+}
+
+.sgq-map-scene span {
+  position: absolute;
+  left: clamp(18px, 5vw, 48px);
+  bottom: 20px;
+  max-width: 420px;
+  color: #14315f;
+  font-weight: 800;
+  line-height: 1.35;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.7);
+}
+
+body.sgq-route-map main .kyrgyz-card:has(a[href*="/level/"]) {
+  animation: sgq-soft-pulse 3.2s ease-in-out infinite;
+}
+
+@media (max-width: 640px) {
+  body.sgq-route-home main .kyrgyz-card:has(svg[viewBox="0 0 600 340"]) {
+    min-height: 250px;
+  }
+
+  .sgq-visual-characters {
+    inset-inline: 3%;
+    bottom: 5%;
+  }
+
+  .sgq-map-scene {
+    min-height: 150px;
+  }
+
+  .sgq-map-scene span {
+    max-width: 62%;
+    font-size: 0.82rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sgq-visual-characters img,
+  .sgq-map-scene,
+  .sgq-map-scene::before,
+  .sgq-map-scene::after,
+  .sgq-map-scene img,
+  body.sgq-route-map main .kyrgyz-card:has(a[href*="/level/"]) {
+    animation: none;
+  }
+}

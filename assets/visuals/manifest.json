@@ -1,0 +1,16 @@
+{
+  "backgrounds.hero": "assets/visuals/backgrounds-hero.png",
+  "backgrounds.map": "assets/visuals/backgrounds-map.png",
+  "avatars.0.src": "assets/visuals/avatars-0-src.png",
+  "avatars.1.src": "assets/visuals/avatars-1-src.png",
+  "avatars.2.src": "assets/visuals/avatars-2-src.png",
+  "avatars.3.src": "assets/visuals/avatars-3-src.png",
+  "avatars.4.src": "assets/visuals/avatars-4-src.png",
+  "avatars.5.src": "assets/visuals/avatars-5-src.png",
+  "avatars.6.src": "assets/visuals/avatars-6-src.png",
+  "avatars.7.src": "assets/visuals/avatars-7-src.png",
+  "avatars.8.src": "assets/visuals/avatars-8-src.png",
+  "avatars.9.src": "assets/visuals/avatars-9-src.png",
+  "avatars.10.src": "assets/visuals/avatars-10-src.png",
+  "avatars.11.src": "assets/visuals/avatars-11-src.png"
+}
