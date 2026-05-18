@@ -205,6 +205,23 @@ body.sgq-route-home [data-sgq-hide-home-snow="true"] {
   animation: sgq-float 3.4s ease-in-out infinite;
 }
 
+body.sgq-route-map .sgq-map-leopard-tip svg[viewBox="0 0 100 100"] {
+  display: none !important;
+}
+
+body.sgq-route-map [data-sgq-hide-map-tip-svg="true"] {
+  display: none !important;
+}
+
+.sgq-map-tip-leopard {
+  width: 58px;
+  height: 58px;
+  flex-shrink: 0;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 14px rgba(20,49,95,0.2));
+  animation: sgq-float 3.2s ease-in-out infinite;
+}
+
 .sgq-map-scene {
   position: relative;
   overflow: hidden;
@@ -379,6 +396,11 @@ body.sgq-route-map main .kyrgyz-card:has(a[href*="/level/"]) {
     font-size: 0.82rem;
   }
 
+  .sgq-map-tip-leopard {
+    width: 52px;
+    height: 52px;
+  }
+
   body.sgq-route-students main button[title] {
     width: 76px !important;
     height: 76px !important;
@@ -387,6 +409,7 @@ body.sgq-route-map main .kyrgyz-card:has(a[href*="/level/"]) {
 
 @media (prefers-reduced-motion: reduce) {
   .sgq-visual-characters img,
+  .sgq-map-tip-leopard,
   .sgq-map-scene,
   .sgq-map-scene img,
   body.sgq-route-map main .kyrgyz-card:has(a[href*="/level/"]) {

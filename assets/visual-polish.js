@@ -76,6 +76,10 @@
     polishSavedAvatars();
   }
 
+  function removeLovableBadge() {
+    document.getElementById("lovable-badge")?.remove();
+  }
+
   function addHomeScene() {
     if (!document.body.classList.contains("sgq-route-home")) return;
     const heroCard = document.querySelector('main .kyrgyz-card svg[viewBox="0 0 600 340"]')?.parentElement;
@@ -166,11 +170,33 @@
     header.insertAdjacentElement("afterend", scene);
   }
 
+  function polishMapLeopardTip() {
+    if (!document.body.classList.contains("sgq-route-map")) return;
+
+    document.querySelectorAll('main .animate-slide-up').forEach((guide) => {
+      if (!(guide.textContent || "").includes("Tip:")) return;
+      const svg = guide.querySelector('svg[viewBox="0 0 100 100"], svg[viewbox="0 0 100 100"]');
+      if (!svg) return;
+
+      guide.classList.add("sgq-map-leopard-tip");
+      svg.dataset.sgqHideMapTipSvg = "true";
+      svg.style.display = "none";
+
+      if (guide.querySelector(".sgq-map-tip-leopard")) return;
+
+      const img = image("/assets/visuals/avatars-10-src.png", "Snow leopard guide");
+      img.className = "sgq-map-tip-leopard";
+      guide.prepend(img);
+    });
+  }
+
   function polish() {
+    removeLovableBadge();
     routeClass();
     polishAvatars();
     addHomeScene();
     addMapScene();
+    polishMapLeopardTip();
     polishHomeLeopard();
   }
 
