@@ -265,8 +265,82 @@ body.sgq-route-map main .kyrgyz-card:has(a[href*="/level/"]) {
 }
 
 @media (max-width: 640px) {
+  body.sgq-polished header > div {
+    padding-top: 0.55rem !important;
+    padding-bottom: 0.55rem !important;
+  }
+
+  body.sgq-route-home main > div.max-w-6xl {
+    padding-top: 1rem !important;
+    padding-bottom: 2rem !important;
+  }
+
+  body.sgq-route-home main > div > div.grid {
+    gap: 1rem !important;
+  }
+
+  body.sgq-route-home main > div > div.grid > div:first-child > * + * {
+    margin-top: 0.65rem !important;
+  }
+
+  body.sgq-route-home main > div > div.grid > div:first-child > span:first-child {
+    padding: 0.34rem 0.72rem !important;
+    border-radius: 1rem !important;
+    font-size: 0.7rem !important;
+    line-height: 1.2 !important;
+  }
+
+  body.sgq-route-home main h1 {
+    font-size: 2rem !important;
+    line-height: 1.12 !important;
+  }
+
+  body.sgq-route-home main > div > div.grid > div:first-child p.text-lg {
+    font-size: 0.98rem !important;
+    line-height: 1.45 !important;
+  }
+
+  body.sgq-route-home main > div > div.grid > div:first-child p.text-sm {
+    font-size: 0.78rem !important;
+    line-height: 1.38 !important;
+  }
+
+  body.sgq-route-home main > div > div.grid > div:first-child div.flex.flex-wrap.gap-2.pt-2 {
+    gap: 0.45rem !important;
+    padding-top: 0.15rem !important;
+  }
+
+  body.sgq-route-home main > div > div.grid > div:first-child a[href="/map"],
+  body.sgq-route-home main > div > div.grid > div:first-child a[href="/students"],
+  body.sgq-route-home main > div > div.grid > div:first-child a[href="/leaderboard"],
+  body.sgq-route-home main > div > div.grid > div:first-child a[href="/teacher"] {
+    padding: 0.58rem 0.85rem !important;
+    border-radius: 0.85rem !important;
+    font-size: 0.9rem !important;
+  }
+
+  body.sgq-route-home main > div > div.grid > div:first-child div.flex.flex-wrap.gap-2.pt-3 {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.3rem !important;
+    padding-top: 0.25rem !important;
+  }
+
+  body.sgq-route-home main > div > div.grid > div:first-child div.flex.flex-wrap.gap-2.pt-3 span {
+    display: block;
+    padding: 0.23rem 0.5rem !important;
+    min-width: 0;
+    overflow: hidden;
+    text-align: center;
+    text-overflow: ellipsis;
+    font-size: 0.64rem !important;
+    line-height: 1.1 !important;
+    white-space: nowrap;
+  }
+
   body.sgq-route-home main .kyrgyz-card:has(svg[viewBox="0 0 600 340"]) {
-    min-height: 250px;
+    min-height: 230px;
+    margin-top: 0.15rem;
   }
 
   .sgq-visual-characters {
